@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eka Care Appointment</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0077b6;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form select {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        form button {
+            background: #0077b6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        form button:hover {
+            background: #005f86;
+        }
+
+        .back-button {
+            background: #003f5c;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            background: #001f3f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Appointment</h1>
+    </header>
+    <section>
+        <form id="appointmentForm">
+            <input type="text" id="name" placeholder="Your Name" required pattern="[A-Za-z\s]+" title="Name must contain only letters and spaces.">
+            <input type="email" placeholder="Your Email" required>
+            <input type="date" required>
+            <select required>
+                <option value="">Select Doctor</option>
+                <option value="general">General Physician</option>
+                <option value="dentist">Dentist</option>
+                <option value="cardiologist">Cardiologist</option>
+            </select>
+            <button type="submit">Book Now</button>
+        </form>
+        <a href="Eka.html" class="back-button">Back </a>
+    </section>
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            const nameField = document.getElementById("name");
+            const nameValue = nameField.value;
+
+            // Check if the name contains only letters and spaces
+            if (!/^[A-Za-z\s]+$/.test(nameValue)) {
+                event.preventDefault();
+                alert("Please enter a valid name containing only letters and spaces.");
+                nameField.focus();
+            } else {
+                alert("Your appointment has been successfully booked!");
+            }
+        });
+    </script>
+</body>
+</html>
